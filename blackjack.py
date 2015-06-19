@@ -41,27 +41,71 @@ def deal():
 # message module
     # hit, stand, deal
 def start():
-    print('blackjack!\nyour hand is ' + printHand())
+    print('blackjack!\n')
+    shuffledeck()
+    deal()
+    printDealer()
+    printHand()
+    menu()
 
 def printHand():
     handmessage = ""
     for i in hand:
         handmessage += i + " "
     # calculate sum here
-    return handmessage + "(" + str(countHand()) + ")"
+    print('your hand is ' + handmessage + "(" + str(countHand(hand)) + ")")
 
-def countHand():
+def printDealer():
+    handmessage = dealer[-1]
+    # calculate sum here
+    print('dealer shows ' + handmessage)
+
+    
+
+def countHand(cards):
     handcount = 0
-    for i in hand:
+    for i in cards:
         handcount += suits[i]
     return handcount
+
+def menu():
+    choice = 1
+    while choice:
+        print('[h]it, [s]tand, or [d]eal?')
+        choice = raw_input()
+        if choice[0].lower() == 'h':
+            pass
+            #hit()
+        elif choice[0].lower() == 's':
+            pass
+            #stand()
+        elif choice[0].lower() == 'd':
+            pass
+            #start()
+        else:
+            print('invalid')
 # hit
+def hit():
+    # add a card to hand
+    # check for bust
+        #if busted, 
+    # check for blackjack
+    # return to menu
+    pass
 
 # stand
+def stand():
+    # start the dealer's deal
+    pass
+
+def bust_check():
+    #if countHand(cards) < 22
+    #return False
+    #else return True
+    pass
+
 
 # deal - refer to 10
 
 if __name__ == "__main__":
-    shuffledeck()
-    deal()
     start()
